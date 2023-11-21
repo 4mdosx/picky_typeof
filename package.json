@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A more type-sensitive typeof, make type detection easier",
   "main": "index.js",
+  "homepage": "https://github.com/4mdosx/picky_typeof",
   "scripts": {
     "test": "node test/index.mjs"
   },
