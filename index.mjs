@@ -5,6 +5,28 @@ export class TypeInfo {
     this.type = typeof a
   }
 
+  [Symbol.toPrimitive] () {
+    if (!["object", "function"].includes(this.type)) {
+      return this.type
+    }
+
+    if (this.type === 'function') {
+      console.log(Function.prototype.toString.call(this.a), 'ok')
+      if (Function.prototype.toString.call(this.a).startsWith("class")) return 'class'
+      return this.a.constructor.name.toLowerCase()
+    }
+
+    if (this.type === 'object') {
+      if (this.a === null) return 'null'
+      return this.a.constructor.name
+    }
+
+    const tag = this.a[Symbol.toStringTag]
+    if (typeof tag === 'string') {
+      return tag
+    }
+  }
+
   is (type) {
     if (typeof type !== 'string') {
       return this.a instanceof type
@@ -12,6 +34,11 @@ export class TypeInfo {
     if (this.type === 'function' && type.endsWith('Function')) {
       return this.a.constructor.name === type
     }
+
+    if (this.type === "function" && type === "class") {
+      return Function.prototype.toString.call(this.a).startsWith("class")
+    }
+
     if (this.type === 'object') {
       if (this.a === null) {
         return type === 'null'
