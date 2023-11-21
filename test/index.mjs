@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert'
-import { typeOf } from '../src/index.mjs'
+import { typeOf } from '../index.mjs'
 
 test('number test', (t) => {
   // test number function
