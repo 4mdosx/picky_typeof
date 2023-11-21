@@ -66,3 +66,12 @@ typeOf(() => {}).is(Function) // true
 ```
 Warning: When you pass in the constructor, instancesOf will actually be called for comparison. Object will return true in all cases. When it needs to be strictly judged as an 
 ordinary object, use `typeOf({}).is('object')`
+
+## with ==
+```js
+typeOf(() => {}) == 'function'// true
+typeOf(NaN) == 'number'// true
+typeOf(null) == 'null'// true
+// Equality will call [Symbol.toPrimitive] to compare
+// here don't use === 
+```
