@@ -74,9 +74,20 @@ test ('class test', (t) => {
   assert.strictEqual(typeOf(new Foo()).is(Foo), true)
   assert.strictEqual(typeOf(new Foo()).is('Foo'), true)
   assert.strictEqual(typeOf(new Foo()).is('foo'), true)
+  assert.strictEqual(typeOf(Foo).is('class'), true)
 })
 
 test ('function test', (t) => {
   assert.strictEqual(typeOf(() => {}).is('function'), true)
+  assert.strictEqual(typeOf(async () => {}).is('function'), true)
   assert.strictEqual(typeOf(async () => {}).is('AsyncFunction'), true)
+})
+
+test ('euqal test', (t) => {
+  assert.strictEqual(typeOf(1) == 'number', true)
+  assert.strictEqual(typeOf(NaN) == 'number', true)
+  assert.strictEqual(typeOf('111') == 'string', true)
+  assert.strictEqual(typeOf(null) == 'null', true)
+  assert.strictEqual(typeOf(undefined) == 'undefined', true)
+  assert.strictEqual(typeOf(() => {}) == 'function', true)
 })
