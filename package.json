@@ -1,0 +1,19 @@
+{
+  "name": "picky_typeof",
+  "version": "1.0.0",
+  "description": "A more type-sensitive typeof, make type detection easier",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/index.mjs"
+  },
+  "keywords": [
+    "typeof",
+    "type",
+    "keywords"
+  ],
+  "author": "4mdosx",
+  "license": "ISC",
+  "engines": {
+    "node": ">= 20"
+  }
+}
