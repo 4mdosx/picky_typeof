@@ -1,4 +1,3 @@
-
 export class TypeInfo {
   constructor (a) {
     this.a = a
@@ -11,7 +10,6 @@ export class TypeInfo {
     }
 
     if (this.type === 'function') {
-      console.log(Function.prototype.toString.call(this.a), 'ok')
       if (Function.prototype.toString.call(this.a).startsWith("class")) return 'class'
       return this.a.constructor.name.toLowerCase()
     }
